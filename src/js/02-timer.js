@@ -9,10 +9,11 @@ const refs = {
     hours: document.querySelector('[data-hours]'),
     minutes: document.querySelector('[data-minutes]'),
     seconds: document.querySelector('[data-seconds]'),
-    dateTimePicker: document.querySelector('#datetime-picker')
+    dateTimePicker: document.querySelector('#datetime-picker'),
+    
 }
 let userDate = null;
-refs.BtnStart.setAttribute('disabled',true)
+refs.BtnStart.setAttribute('disabled', true)
 
 const options = {
   enableTime: true,
@@ -33,7 +34,8 @@ flatpickr(refs.dateTimePicker, options);
 
 
 refs.BtnStart.addEventListener('click', () => {
-    refs.BtnStart.setAttribute('disabled',true)
+    refs.BtnStart.setAttribute('disabled', true)
+    refs.dateTimePicker.setAttribute('disabled', true)
     setInterval(() => {
         if (userDate <= Date.now()) return;
         const currentTime = convertMs(userDate - Date.now());
